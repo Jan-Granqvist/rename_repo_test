@@ -1,2 +1,0 @@
-This is the text in file1.txt in the main branch.
-Then updated text in file1.txt in the main branch.
