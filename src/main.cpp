@@ -2,14 +2,20 @@
 #include <string>
 #include <memory>
 
-class Helper
+class BaseClass
+{
+	public:
+		virtual const std::string &String () const = 0;
+};
+
+class Helper : public BaseClass
 {
 	public:
 		explicit Helper(const std::string input)
 		: m_string(std::move(input)) {}
-		~Helper()
-		{
-			std::cout << m_string << std::endl;
+		~Helper() {};
+		const std::string &String () const override{
+			return m_string;
 		}
 	private:
 		std::string	m_string;
@@ -17,5 +23,6 @@ class Helper
 
 int main(int argc, char **argv)
 {
-	std::unique_ptr<Helper>	helper = std::make_unique<Helper>(std::move("Hello world from helper!!"));
+	std::unique_ptr<BaseClass>	helper = std::make_unique<Helper>(std::move("Hello world from child::helper!!"));
+	std::cout << helper->String() << std::endl;
 }
