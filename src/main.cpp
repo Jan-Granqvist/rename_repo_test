@@ -23,6 +23,6 @@ class Helper : public BaseClass
 
 int main(int argc, char **argv)
 {
-	std::unique_ptr<BaseClass>	helper = std::make_unique<Helper>(std::move("Hello world from child::helper!!"));
+	std::unique_ptr<BaseClass>	helper = std::make_unique<Helper>(std::move("Hello world from child::Helper!!"));
 	std::cout << helper->String() << std::endl;
 }
